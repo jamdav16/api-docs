@@ -17,7 +17,7 @@ So I made this: *api-docs*.
 
 ## Getting Started
 
-Um... fork this repos.
+Um... fork this repo.
 
 Open `index.html` in your favorite editor.
 
