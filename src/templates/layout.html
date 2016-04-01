@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>gobeebo/api-docs: A template for creating API documentation, inspired by Stripe</title>
+
+    <link rel="stylesheet" href="dist/css/api-docs.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="header">
+
+      <div class="header-section header-section-sidebar">
+        <a class="logo" href="https://api-docs.github.io">api-docs</a>
+        <a class="logo-github" href="https://github.com/gobeebo/api-docs"><i class="fa fa-github"></i></a>
+      </div>
+
+      <div class="header-section header-section-copy">
+        <!-- sidebar replacement for smaller screens -->
+        <div class="select-field jump-menu">
+          <!-- this gets built automatically at runtime -->
+          <select>
+            {{ menu }}
+          </select>
+        </div>
+
+      </div>
+
+      <div class="header-section header-section-example">
+        <div id="language">
+          <ul class="language-toggle">
+            <!-- languages -->
+          </ul>
+        </div>
+      </div>
+
+      <script type="text/template" data-template="lang">
+        <li>
+          <input type="radio" class="language-toggle-source" name="language-toggle" 
+            id="" 
+            data-language="">
+          <!-- id: toggle-lang-{{ lang }} -->
+          <!-- data-language: {{ lang }} -->
+          <label for="toggle-lang-curl" class="language-toggle-button">
+            <!-- lang name -->
+          </label>
+        </li>
+      </script>
+
+    </div><!-- /#header -->
+
+    <div id="sidebar">
+      <nav role="navigation" class="sidebar-nav">
+        {{ navigation }}
+      </nav>
+    </div><!-- /#sidebar -->
+
+    <!-- example background -->
+    <div id="background">
+      <div class="background-actual"></div>
+    </div>
+
+    <!-- this gets built by grunt:dist -->
+    <!-- all content is in src/content/topics -->
+    <div id="content">
+
+      {{ content }}
+
+      <!--
+      <div class="method-group">
+        <section class="method" id="authentication">
+          <div class="method-area">
+            <div class="method-copy">
+              <div class="method-copy-padding">
+                <h1>Authentication</h1>
+                <p>
+                  Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
+                </p>
+                <p class="lang-curl">
+                  Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>. Provide your API key as the basic auth username value. You do not need to provide a password.
+                </p>
+                <p class="lang-curl">
+                  If you need to authenticate via bearer auth (e.g., for a cross-origin request), use <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> instead of <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code>.
+                </p>
+                <p>
+                  All API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+                </p>
+              </div>
+            </div>
+            <div class="method-example">
+              <div class="method-example-part">
+                <div class="method-example-request include-prompt">
+                  <span class="lang lang-curl">
+                    <pre class=" hljs language-bash"></pre>
+                  </span>
+                  <span class="lang lang-ruby">
+                    <pre class=" language-ruby"></pre>
+                </div>
+                <p>
+                  <span class="lang lang-curl">
+                    cURL uses the <code>-u</code> flag to pass basic auth credentials (adding a colon after your API key prevents cURL from asking for a password).
+                  </span>
+                  <span class="lang lang-ruby lang-python lang-php lang-java lang-go">
+                    You can set the default API key, or you can always pass a key directly to an object's constructor. Authentication is transparently handled for you in subsequent method calls.
+                  </span>
+                  <span class="lang lang-node">
+                    You can set the default key by passing it to the Stripe module (a constructor). Authentication is transparently handled for you in subsequent method calls.
+                  </span>
+                </p>
+                <p>
+                  A sample test API key is included in all the examples on this page, so you can test any example right away. To test requests using your account, replace the sample API key with your actual API key.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      -->
+
+    </div>
+
+    <script src="dist/js/api-docs.js"></script>
+  </body>
+</html>
