@@ -4,7 +4,7 @@ I wanted to create some documentation to drive a project. More precisely,
 I wanted to document a REST web service API, so that I could then build
 implementations of the API for multiple platforms.
 
-I really like [Stripe's API documentation](https://stripe.com/docs/api)&mdash;it;s
+I really like [Stripe's API documentation](https://stripe.com/docs/api)&mdash;it's
 clean, well organized, responsive, and supports presenting code samples
 for multiple platforms.
 
