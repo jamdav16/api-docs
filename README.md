@@ -17,7 +17,9 @@ So I made this: *api-docs*.
 
 ## Getting Started
 
-Um... fork this repo.
+Um... [read the documentation](https://gobeebo.github.io/api-docs).
+
+Fork this repo.
 
 Open `index.html` in your favorite editor.
 
