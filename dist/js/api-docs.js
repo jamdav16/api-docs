@@ -10577,14 +10577,17 @@ MIT Licensed
 	}
 
 	function go(id) {
-		try {
-			history.pushState(null, null, '#' + id);
-		} catch (e) {
-			// we don't care: window.console && console.error(e);
-		} finally {
-			$('a.selected').removeClass('selected');
-			$('[href="#' + id + '"]').addClass('selected');
-			$('#header select').val(id);
+		var $el = $('#' + id);
+		if ($el.length && $el.offset().top > 0) {
+			try {
+				history.pushState(null, null, '#' + id);
+			} catch (e) {
+				// we don't care: window.console && console.error(e);
+			} finally {
+				$('a.selected').removeClass('selected');
+				$('[href="#' + id + '"]').addClass('selected');
+				$('#header select').val(id);
+			}
 		}
 	};
 
@@ -10597,8 +10600,7 @@ MIT Licensed
 				'handler': function(direction) {
 					go(id);
 				},
-				'context': context,
-				'offset': 10
+				'context': context
 			});
 		});
 	};
