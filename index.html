@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximium-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>gobeebo/api-docs: A template for creating API documentation, inspired by Stripe</title>
 
@@ -39,12 +39,19 @@
           <select>
             <optgroup label="Introduction">
   <option value="introduction">Introduction</option>
-<option value="getting-started">Getting Started</option>
+<option value="acknowledgements">Acknowledgements</option>
 </optgroup>
 <optgroup label="How It Works">
+  <option value="getting-started">Getting Started</option>
+<option value="building">Building</option>
+</optgroup>
+<optgroup label="Components">
   
 </optgroup>
-<optgroup label="How to Contribute">
+<optgroup label="Customizing">
+  
+</optgroup>
+<optgroup label="Support">
   
 </optgroup>
           </select>
@@ -83,14 +90,27 @@
   <a class="sidebar-nav-item" href="#introduction">Introduction</a>
 </li>
 <li>
-  <a class="sidebar-nav-item" href="#getting-started">Getting Started</a>
+  <a class="sidebar-nav-item" href="#acknowledgements">Acknowledgements</a>
 </li>
 </ul>
 <h5 class="sidebar-nav-heading">How It Works</h5>
 <ul class="sidebar-nav-items">
+	<li>
+  <a class="sidebar-nav-item" href="#getting-started">Getting Started</a>
+</li>
+<li>
+  <a class="sidebar-nav-item" href="#building">Building</a>
+</li>
+</ul>
+<h5 class="sidebar-nav-heading">Components</h5>
+<ul class="sidebar-nav-items">
 	
 </ul>
-<h5 class="sidebar-nav-heading">How to Contribute</h5>
+<h5 class="sidebar-nav-heading">Customizing</h5>
+<ul class="sidebar-nav-items">
+	
+</ul>
+<h5 class="sidebar-nav-heading">Support</h5>
 <ul class="sidebar-nav-items">
 	
 </ul>
@@ -109,15 +129,45 @@
   <div class="method-area">
     <div class="method-copy">
       <div class="method-copy-padding">
-        <h1>Simple, beautiful documentation</h1>
+        <h1>Simple, beautiful, responsive documentation.</h1>
         <p>
-          Authenticate your account when using the API by 
-          including your secret API key in the request. 
-          You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. 
-          Your API keys carry many privileges, so be sure to 
-          keep them secret! Do not share your secret API keys 
-          in <code>publicly accessible</code> areas such GitHub, 
-          client-side code, and so forth.
+          <b>api-docs</b> is a minimalist toolkit for producing
+          great documentation. The intent of
+          this toolkit is to make larger documentation projects
+          more approachable, like the sort that are needed for
+          documenting cross-platform and web service APIs.
+        </p>
+        <p>
+          There's no database here, no code generation, no new 
+          syntaxes to learn. You'll compose your docs using
+          <b>HTML</b>, optionally making use of some 
+          <a href="#special-tags">special tags</a>
+          we've design just for marking up source code.
+        </p>
+        <p>
+          The documentation you're reading now was built using
+          <b>api-docs</b>, so if you like what you see, you're
+          half way there.
+        </p>
+      </div>
+    </div>
+  </div>
+</section></div><div class="method-group"><section class="method" id="acknowledgements">
+  <div class="method-area">
+    <div class="method-copy">
+      <div class="method-copy-padding">
+        <h1>Thank you.</h1>
+        <p>
+          api-docs wouldn't look so amazing were it not
+          for the example set by the team at 
+          <a href="https://stripe.com/" target="_blank">Stripe</a>.
+          A quick look at their 
+          <a href="https://stripe.com/docs/api" target="_blank">API reference documentation</a>
+          and you'll be able to see why. 
+          It was my experience working with their product and 
+          their docs that first inspired me to look for a platform 
+          on which to write my own beautiful docs, leading
+          eventually to building api-docs.
         </p>
       </div>
     </div>
@@ -128,135 +178,148 @@
       <div class="method-copy-padding">
         <h1>Getting Started</h1>
         <p>
-          Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
+          To start a new documentation project with <b>api-docs</b>,
+          the first thing you'll want to do is clone the 
+          <a href="https://github.com/gobeebo/api-docs" target="_blank">GitHub project</a>.
+          For this you'll need to use Git. 
+        </p>
+        <p>If you're unfamiliar with
+          Git, api-docs might not be the tool you were hoping for.
+          If you are in need, here are some <a href="https://help.github.com/articles/good-resources-for-learning-git-and-github/" target="_blank">great resources</a>
+          for learning Git.
+        </p>
+        <p>
+          Despite being minimal, api-docs still relies on a few dependencies,
+          namely <a href="https://www.npmjs.com/" target="_blank">NPM</a>, 
+          <a href="http://bower.io/" target="_blank">bower</a>, and <a href="http://gruntjs.com/" target="_blank">Grunt</a>,
+          and you'll need to install them before you can really get rolling.
+        </p>
+        <p>
+          The last and most important thing you'll need is a good text editor.
+          Personally, I love <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>,
+          but I hear great things about <a href="https://atom.io/" target="_blank">Atom</a>, too.
         </p>
       </div>
+
+      <!--
       <div class="method-list">
-        <h5 class="method-list-title">Attributes</h5>
+        <h5 class="method-list-title">Dependencies</h5>
         <ul class="method-list-group">
-          <li class="method-list-item" id="errors-type">
+          <li class="method-list-item" id="bower">
             <h3 class="method-list-item-label">
-              <a href="#errors-type" class="header-anchor"></a>
-              type
+              Bower
             </h3>
             <p class="method-list-item-description">
-              The type of error returned. Can be: <code>api_connection_error</code>, <code>api_error</code>, <code>authentication_error</code>, <code>card_error</code>, <code>invalid_request_error</code>, or <code>rate_limit_error</code>.
-            </p>
-          </li>
-          <li class="method-list-item" id="errors-message">
-            <h3 class="method-list-item-label"><a href="#errors-message" class="header-anchor"></a>
-              message
-              <span class="method-list-item-label-details">optional</span>
-            </h3>
-            <p class="method-list-item-description">
-              A human-readable message providing more details about the error. For card
-              errors, these messages can be shown to your users.
-            </p>
-          </li>
-          <li class="method-list-item" id="errors-code">
-            <h3 class="method-list-item-label"><a href="#errors-code" class="header-anchor"></a>
-              code
-              <span class="method-list-item-label-details">optional</span>
-            </h3>
-            <p class="method-list-item-description">
-              For card errors, a short string from amongst those listed on the right
-              describing the kind of card error that occurred.
-            </p>
-          </li>
-          <li class="method-list-item" id="errors-param">
-            <h3 class="method-list-item-label"><a href="#errors-param" class="header-anchor"></a>
-              param
-              <span class="method-list-item-label-details">optional</span>
-            </h3>
-            <p class="method-list-item-description">
-              The parameter the error relates to if the error is parameter-specific.
-              You can use this to display a message near the correct form field, for
-              example.
+              
             </p>
           </li>
         </ul>
       </div>
+      -->
+
     </div>
-    <div class="method-example" id="api-summary-example">
+    <div class="method-example">
       <div class="method-example-part">
-        <h3>API libraries</h3>
-        <p>Libraries for the Stripe API are <a href="https://stripe.com/docs/libraries">available in several languages</a>.</p>
-        <div class="method-example-endpoint">
-          <span class="lang"><pre><code class="nohighlight">https://api.stripe.com</code></pre></span>
+        <h3>Setting up your documentation project</h3>
+        <p>To create your documentation project, start by cloning the 
+        <a href="https://github.com/gobeebo/api-docs.git">api-docs</a> project
+        from GitHub, then install its few dependencies by running <code>npm install</code>
+        and <code>bower install</code>.</p>
+      </div>
+      <div class="method-example-part">
+        <div class="method-example-command">
+          <span class="lang lang-bash"><pre><code class="language-bash">$ git clone git@github.com:gobeebo/api-docs.git \
+    your-project-name</code></pre></span>
         </div>
       </div>
       <div class="method-example-part">
-        <h3>Language specific example</h3>
-        <div class="method-example-request">
-          <span class="lang lang-bash"><pre><code class="language-bash">$ curl https://whatever.com \
-  -u sk_test_whatever</code></pre></span>
-          <span class="lang lang-php"><pre><code class="language-php">JSON: {
-  &quot;docTitle&quot;: &quot;beebo/api-docs&quot;,
-  &quot;homeUrl&quot;: &quot;https://github.com/gobeebo/api-docs&quot;
-}
+        <div class="method-example-command">
+          <span class="lang lang-bash"><pre><code class="language-bash">your-project-name $ npm install &amp;&amp; bower install</code></pre></span>
+        </div>
+      </div>
+    </div>
 
-define('ROOT', realpath(dirname(__FILE__)));
+  </div>
+</section></div><div class="method-group"><section class="method" id="building">
+  <div class="method-area">
+    <div class="method-copy">
+      <div class="method-copy-padding">
+        <h1>Building</h1>
+        <p> 
+          You'll do all of your writing using HTML,
+          with each major section of your documentation 
+          living in a <a href="#content-files">dedicated file</a>. 
+          <b>api-docs</b> processes and decorates your files to create
+          a single doc file, <code>index.html</code>, that
+          will live in the root of your project
+          (unless you <a href="#configuration">tell it to go somewhere else</a>).
+        </p>
+        <p>
+          The building of your doc file is handled by Grunt,
+          which you can run anytime with the command
+          <code>grunt dist</code>. You can also have Grunt
+          building continuously in the background, rebuilding
+          your doc file in response to changes you make,
+          by running the command <code>grunt watch</code>.
+        </p>
+      </div>
 
-if (!$extConfig = json_decode(file_get_contents(ROOT.'/build.config.json'))) {
-  throw new \Exception(&quot;Unable to parse build config file&quot;);
-}
+      <!--
+      <div class="method-list">
+        <h5 class="method-list-title">Dependencies</h5>
+        <ul class="method-list-group">
+          <li class="method-list-item" id="bower">
+            <h3 class="method-list-item-label">
+              Bower
+            </h3>
+            <p class="method-list-item-description">
+              
+            </p>
+          </li>
+        </ul>
+      </div>
+      -->
 
-$baseConfig = [
-  'templatePath' =&gt; ROOT .'/src/templates',
-  'layoutPath' =&gt; '',
-  'outputPath' =&gt; ROOT.'/index.html'
-];</code></pre></span>
-          <span class="lang lang-html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;body&gt;Honey, boo boo&lt;/body&gt;
-&lt;/html&gt;</code></pre></span>
+    </div>
+    <div class="method-example">
+      <div class="method-example-part">
+        <h3>Building your documentation</h3>
+        <p>
+          Build your doc file in the background using
+          with the command <code>grunt watch</code>, or on demand 
+          using <code>grunt dist</code>.
+        </p>
+      </div>
+      <div class="method-example-part">
+        <div class="method-example-command">
+          <span class="lang lang-bash"><pre><code class="language-bash">your-project-name $ grunt watch
+# Running &quot;watch&quot; task
+# Waiting...</code></pre></span>
         </div>
       </div>
       <div class="method-example-part">
-        <h3>HTTP status code summary</h3>
-        <section class="table">
-          <header class="table-header">
-            Types
-          </header>
-          <table class="table-container">
-            <tbody>
-              <tr>
-                <th class="table-row-property">200 - OK</th>
-                <td class="table-row-definition">Everything worked as expected.</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">400 - Bad Request</th>
-                <td class="table-row-definition">The request was unacceptable, often due to  missing a required parameter.</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">401 - Unauthorized</th>
-                <td class="table-row-definition">No valid API key provided.</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">402 - Request Failed</th>
-                <td class="table-row-definition">The parameters were valid but the request failed.</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">404 - Not Found</th>
-                <td class="table-row-definition">The requested resource doesn't exist.</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">409 - Conflict</th>
-                <td class="table-row-definition">The request conflicts with another request (perhaps due to using the same idempotent  key).</td>
-              </tr>
-              <tr>
-                <th class="table-row-property">429 - Too Many Requests</th>
-                <td class="table-row-definition">Too many requests hit the API too quickly.</td>
-              </tr>
-                <tr><th class="table-row-property">500, 502, 503, 504 - Server Errors</th>
-                <td class="table-row-definition">Something went wrong on Stripe's end. (These are rare.)</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        <div class="method-example-command">
+          <span class="lang lang-bash"><pre><code class="language-bash">your-project-name $ grunt dist
+# Running &quot;copy:main&quot; (copy) task
+# Created 2 directories, copied 113 files
+#
+# Running &quot;less:api_docs&quot; (less) task
+# File ./dist/css/api-docs.css created: 21.61 kB &rarr; 21.61 kB
+#
+# Running &quot;autoprefixer:api_docs&quot; (autoprefixer) task
+# File ./dist/css/api-docs.css created.
+# File ./dist/css/api-docs.css.map created (source map).
+# 
+# Running &quot;concat:api-docs&quot; (concat) task
+# File ./dist/js/api-docs.js created.
+# 
+# Running &quot;shell:htmlbuild&quot; (shell) task
+# Done building.
+# Your new api-doc is in /your-project-name/index.html</code></pre></span>
+        </div>
       </div>
-
     </div>
+
   </div>
 </section></div>
     </div>

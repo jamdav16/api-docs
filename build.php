@@ -85,6 +85,13 @@ function getSectionId($content) {
 	}
 }
 
+/**
+ * Turn <hljs> elements into properly-marked up
+ * code samples and examples.
+ * @param string content
+ * @param array in which to capture all languages found
+ * @return string transformed content
+ */
 function transformHLJS($content, &$languages) {
 	$languages = [];
 
@@ -136,6 +143,14 @@ function transformHLJS($content, &$languages) {
 	return $content;
 }
 
+
+
+/**
+ * Run all transformations.
+ * @param string content
+ * @param array in which to capture all languages found
+ * @return string
+ */
 function transform($section, &$languages) {
 	$content = $section['content'];
 	$content = transformHLJS($content, $languages);

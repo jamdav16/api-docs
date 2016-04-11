@@ -147,6 +147,9 @@ a:hover {
   color: #292e31;
   text-decoration: none;
 }
+b {
+  font-weight: 600;
+}
 p {
   margin-top: 20px;
 }
@@ -226,6 +229,82 @@ ul {
 }
 #sidebar .sidebar-nav .sidebar-nav-items li .sidebar-nav-item:hover {
   text-decoration: underline;
+}
+.method-example-part {
+  padding: 30px 40px;
+}
+@media screen and (max-width: 848px) {
+  .method-example-part {
+    padding: 30px 20px;
+  }
+}
+.method-example-part .method-example-endpoint {
+  padding: 20px 0;
+}
+.method-example-part .method-example-endpoint:first-child {
+  padding-top: 0;
+}
+.method-example-part .method-example-endpoint:last-child {
+  padding-bottom: 0;
+}
+.method-example-part .method-example-endpoint:before {
+  display: block;
+  padding-bottom: 8px;
+  content: 'API Endpoint';
+  color: #d0d4d7;
+  font-size: 14px;
+  font-weight: 500;
+}
+.method-example-part .method-example-request {
+  padding: 20px 0;
+}
+.method-example-part .method-example-request:first-child {
+  padding-top: 0;
+}
+.method-example-part .method-example-request:last-child {
+  padding-bottom: 0;
+}
+.method-example-part .method-example-request:before {
+  display: block;
+  padding-bottom: 8px;
+  content: 'Example Request';
+  color: #d0d4d7;
+  font-size: 14px;
+  font-weight: 500;
+}
+.method-example-part .method-example-response {
+  padding: 20px 0;
+}
+.method-example-part .method-example-response:first-child {
+  padding-top: 0;
+}
+.method-example-part .method-example-response:last-child {
+  padding-bottom: 0;
+}
+.method-example-part .method-example-response:before {
+  display: block;
+  padding-bottom: 8px;
+  content: 'Example Response';
+  color: #d0d4d7;
+  font-size: 14px;
+  font-weight: 500;
+}
+.method-example-part .method-example-command {
+  padding: 20px 0;
+}
+.method-example-part .method-example-command:first-child {
+  padding-top: 0;
+}
+.method-example-part .method-example-command:last-child {
+  padding-bottom: 0;
+}
+.method-example-part .method-example-command:before {
+  display: block;
+  padding-bottom: 8px;
+  content: 'Command';
+  color: #d0d4d7;
+  font-size: 14px;
+  font-weight: 500;
 }
 #header {
   position: absolute;
@@ -730,65 +809,6 @@ ul {
     padding: 20px 20px;
   }
 }
-#content .method-group .method-area .method-example .method-example-part {
-  padding: 30px 40px;
-}
-@media screen and (max-width: 848px) {
-  #content .method-group .method-area .method-example .method-example-part {
-    padding: 30px 20px;
-  }
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-endpoint {
-  padding: 19.9992px 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-endpoint:first-child {
-  padding-top: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-endpoint:last-child {
-  padding-bottom: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-endpoint:before {
-  display: block;
-  padding-bottom: 8.0002px;
-  content: 'API Endpoint';
-  color: #d0d4d7;
-  font-size: 14px;
-  font-weight: 500;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-request {
-  padding: 19.9992px 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-request:first-child {
-  padding-top: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-request:last-child {
-  padding-bottom: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-request:before {
-  display: block;
-  padding-bottom: 8.0002px;
-  content: 'Example Request';
-  color: #d0d4d7;
-  font-size: 14px;
-  font-weight: 500;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-response {
-  padding: 19.9992px 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-response:first-child {
-  padding-top: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-response:last-child {
-  padding-bottom: 0;
-}
-#content .method-group .method-area .method-example .method-example-part .method-example-response:before {
-  display: block;
-  padding-bottom: 8.0002px;
-  content: 'Example Response';
-  color: #d0d4d7;
-  font-size: 14px;
-  font-weight: 500;
-}
 #content .method-group .method-area .method-example .table {
   margin: 30px 0 45px;
   max-width: 768px;
@@ -860,6 +880,20 @@ ul {
   #content .method-group .method-area .method-example .table .table-container tr td {
     padding-top: 0 !important;
   }
+}
+#content .method-group .method-area .method-example code:not(.hljs),
+#content .method-group .method-area .method-example tt:not(.hljs) {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  display: inline-block;
+  padding: 0 5px;
+  background: #272b2d;
+  border: #171a1b;
+  border-radius: 4px;
+  color: #dde4e8;
+  font-family: "Inconsolata", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 20px;
 }
 /* from monokai_sublime: */
 .hljs {

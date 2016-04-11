@@ -1,0 +1,86 @@
+<section class="method" id="building">
+  <div class="method-area">
+    <div class="method-copy">
+      <div class="method-copy-padding">
+        <h1>Building</h1>
+        <p> 
+          You'll do all of your writing using HTML,
+          with each major section of your documentation 
+          living in a <a href="#content-files">dedicated file</a>. 
+          <b>api-docs</b> processes and decorates your files to create
+          a single doc file, <code>index.html</code>, that
+          will live in the root of your project
+          (unless you <a href="#configuration">tell it to go somewhere else</a>).
+        </p>
+        <p>
+          The building of your doc file is handled by Grunt,
+          which you can run anytime with the command
+          <code>grunt dist</code>. You can also have Grunt
+          building continuously in the background, rebuilding
+          your doc file in response to changes you make,
+          by running the command <code>grunt watch</code>.
+        </p>
+      </div>
+
+      <!--
+      <div class="method-list">
+        <h5 class="method-list-title">Dependencies</h5>
+        <ul class="method-list-group">
+          <li class="method-list-item" id="bower">
+            <h3 class="method-list-item-label">
+              Bower
+            </h3>
+            <p class="method-list-item-description">
+              
+            </p>
+          </li>
+        </ul>
+      </div>
+      -->
+
+    </div>
+    <div class="method-example">
+      <div class="method-example-part">
+        <h3>Building your documentation</h3>
+        <p>
+          Build your doc file in the background using
+          with the command <code>grunt watch</code>, or on demand 
+          using <code>grunt dist</code>.
+        </p>
+      </div>
+      <div class="method-example-part">
+        <div class="method-example-command">
+          <hljs lang="bash">
+            your-project-name $ grunt watch
+            # Running "watch" task
+            # Waiting...
+          </hljs>
+        </div>
+      </div>
+      <div class="method-example-part">
+        <div class="method-example-command">
+          <hljs lang="bash">
+            your-project-name $ grunt dist
+            # Running "copy:main" (copy) task
+            # Created 2 directories, copied 113 files
+            #
+            # Running "less:api_docs" (less) task
+            # File ./dist/css/api-docs.css created: 21.61 kB → 21.61 kB
+            #
+            # Running "autoprefixer:api_docs" (autoprefixer) task
+            # File ./dist/css/api-docs.css created.
+            # File ./dist/css/api-docs.css.map created (source map).
+            # 
+            # Running "concat:api-docs" (concat) task
+            # File ./dist/js/api-docs.js created.
+            # 
+            # Running "shell:htmlbuild" (shell) task
+            # Done building.
+            # Your new api-doc is in /your-project-name/index.html
+          </hljs>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

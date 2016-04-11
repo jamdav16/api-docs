@@ -1,0 +1,46 @@
+.method-example(@content) {
+  padding: ( @line-height-base * (20/26) ) 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &:before {
+    display: block;
+    padding-bottom: ( @line-height-base * (8/26) );
+    content: @content;
+    color: @method-example-heading-color;
+    font-size: @font-size-base;
+    font-weight: @font-weight-base;
+  }
+}
+
+.method-example-part {
+
+  padding: @method-example-part-padding-md;
+
+  @media screen and (max-width: @screen-sm) {
+    padding: @method-example-part-padding-sm;
+  }
+
+  .method-example-endpoint {
+    .method-example('API Endpoint');
+  }
+
+  .method-example-request {
+    .method-example('Example Request');
+  }
+
+  .method-example-response {
+    .method-example('Example Response');
+  }
+
+  .method-example-command {
+    .method-example('Command');
+  }
+
+} // .method-example-part
