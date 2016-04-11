@@ -6,54 +6,41 @@ MIT Licensed
 */
 !function($) {
 
-	var Router = Backbone.Router.extend({
-		routes: {
-			':id': 'go'
-		},
+	if (document.location.hash) {
+		$('#content').scrollTop( $(document.location.hash).offset().top );
+	}
 
-		go: function(id) {
-			console.log('go', id);
-			/*
-			setTimeout(function() {
-				var top = $('#'+id).offset().top;
-				if (top > 0) {
-					$('#content').scrollTop(top);
-				}
-				initWaypoints();
-			}, 0);
-			*/
-		}
-	});
-
-	$('#sidebar a').click(function() {
-		router.navigate($(this).attr('href'), { trigger: true });
-		return false;
-	});
-
-	var context = $('#content').get(0);
-
-	var hasInitWaypoints = false;
-
-	function initWaypoints() {
-		if (!hasInitWaypoints) {
-			hasInitWaypoints = true
-			$('#content section[id]').each(function() {
-				var id = $(this).attr('id');
-				new Waypoint({
-					'element': this,
-					'handler': function(direction) {
-						router.navigate(id, { trigger: true });
-					},
-					'context': context
-				});
+	function createWaypoints() {
+		var context = $('#content').get(0);
+		$('#content section[id]').each(function() {
+			var id = $(this).attr('id');
+			new Waypoint({
+				'element': this,
+				'handler': function(direction) {
+					try {
+						history.pushState(null, null, '#' + id);
+					} catch (e) {
+						window.console && console.error(e);
+					}
+				},
+				'context': context
 			});
-		}
+		});
 	};
 
-	var router = new Router();
+	function destroyWaypoints() {
+		Waypoint.destroyAll();
+	};
 
-	Backbone.history.start({
-		pushState: false
+	$('#sidebar a').click(function() {
+		destroyWaypoints();
+		setTimeout(function() {
+			createWaypoints();
+		}, 300);	
 	});
+
+	setTimeout(function() {
+		createWaypoints();
+	}, 1000);
 
 }(jQuery);
