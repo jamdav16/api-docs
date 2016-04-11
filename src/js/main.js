@@ -23,7 +23,8 @@ MIT Licensed
 						window.console && console.error(e);
 					}
 				},
-				'context': context
+				'context': context,
+				'offset': '25%'
 			});
 		});
 	};
