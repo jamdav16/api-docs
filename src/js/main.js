@@ -17,11 +17,11 @@ MIT Licensed
 				history.pushState(null, null, '#' + id);
 			} catch (e) {
 				// we don't care: window.console && console.error(e);
-			} finally {
-				$('a.selected').removeClass('selected');
-				$('[href="#' + id + '"]').addClass('selected');
-				$('#header select').val(id);
-			}
+			} 
+
+			$('a.selected').removeClass('selected');
+			$('[href="#' + id + '"]').addClass('selected');
+			$('#header select').val(id);
 		}
 	};
 
@@ -46,6 +46,7 @@ MIT Licensed
 	$('#header select').change(function() {
 		var id = $(this).val();
 		if (id) {
+			$('#content').scrollTop( $('#' + id).offset().top );
 			go(id);
 		}
 	});
