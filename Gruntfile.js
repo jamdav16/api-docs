@@ -30,12 +30,13 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
-      giftedhire: {
+      "api-docs": {
         src: [
           './bower_components/jquery/dist/jquery.js',
           './bower_components/underscore/underscore.js',
           './bower_components/backbone/backbone.js',
           
+          './src/js/hljs-curl.js',
           './src/js/main.js'
         ],
         dest: './dist/js/api-docs.js'
@@ -78,13 +79,25 @@ module.exports = function(grunt) {
           livereload: true                        //reloads the browser
         }
       },
-      content: {
+      js: {
         files: [
-          './src/html/**/*'
-        ],  //watched files
-        tasks: ['shell:htmlbuild'],                          //tasks to run
+          './src/js/**/*'
+        ],
+        tasks: ['concat'],
         options: {
-          livereload: true                        //reloads the browser
+          livereload: true
+        }
+      },
+      build: {
+        files: [
+          './**/*.php',
+          './build.config.json',
+          './src/content/**/*',
+          './src/templates/**/*'
+        ],
+        tasks: ['shell:htmlbuild'],
+        options: {
+          livereload: true
         }
       }
     }

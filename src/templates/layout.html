@@ -7,7 +7,15 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>gobeebo/api-docs: A template for creating API documentation, inspired by Stripe</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata|Lato:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="dist/css/api-docs.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="dist/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,8 +27,9 @@
     <div id="header">
 
       <div class="header-section header-section-sidebar">
-        <a class="logo" href="https://api-docs.github.io">api-docs</a>
-        <a class="logo-github" href="https://github.com/gobeebo/api-docs"><i class="fa fa-github"></i></a>
+        <div class="logo">
+          <a href="{{ homeUrl }}">{{ docTitle }}</a>
+        </div>
       </div>
 
       <div class="header-section header-section-copy">
@@ -69,62 +78,9 @@
     </div>
 
     <!-- this gets built by grunt:dist -->
-    <!-- all content is in src/content/topics -->
+    <!-- all content is in src/content -->
     <div id="content">
-
       {{ content }}
-
-      <!--
-      <div class="method-group">
-        <section class="method" id="authentication">
-          <div class="method-area">
-            <div class="method-copy">
-              <div class="method-copy-padding">
-                <h1>Authentication</h1>
-                <p>
-                  Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
-                </p>
-                <p class="lang-curl">
-                  Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>. Provide your API key as the basic auth username value. You do not need to provide a password.
-                </p>
-                <p class="lang-curl">
-                  If you need to authenticate via bearer auth (e.g., for a cross-origin request), use <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> instead of <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code>.
-                </p>
-                <p>
-                  All API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-                </p>
-              </div>
-            </div>
-            <div class="method-example">
-              <div class="method-example-part">
-                <div class="method-example-request include-prompt">
-                  <span class="lang lang-curl">
-                    <pre class=" hljs language-bash"></pre>
-                  </span>
-                  <span class="lang lang-ruby">
-                    <pre class=" language-ruby"></pre>
-                </div>
-                <p>
-                  <span class="lang lang-curl">
-                    cURL uses the <code>-u</code> flag to pass basic auth credentials (adding a colon after your API key prevents cURL from asking for a password).
-                  </span>
-                  <span class="lang lang-ruby lang-python lang-php lang-java lang-go">
-                    You can set the default API key, or you can always pass a key directly to an object's constructor. Authentication is transparently handled for you in subsequent method calls.
-                  </span>
-                  <span class="lang lang-node">
-                    You can set the default key by passing it to the Stripe module (a constructor). Authentication is transparently handled for you in subsequent method calls.
-                  </span>
-                </p>
-                <p>
-                  A sample test API key is included in all the examples on this page, so you can test any example right away. To test requests using your account, replace the sample API key with your actual API key.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      -->
-
     </div>
 
     <script src="dist/js/api-docs.js"></script>

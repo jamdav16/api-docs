@@ -1,0 +1,240 @@
+#header {
+
+	position: absolute;
+	right: 0;
+	z-index: 100;	
+	left: ( @sidebar-width-lg + 1);
+
+	@media screen and (max-width: @screen-lg) {
+		left: ( @sidebar-width-md + 1 );
+	}
+
+	@media screen and (max-width: @screen-md) {
+		left: 0;
+		height: @header-height;
+		border-bottom: 1px solid @sidebar-border-color;
+		background: @bg-color-base;
+	}
+
+	.header-section {
+
+		height: @header-height;
+		position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    
+		&-sidebar {
+
+			left: (-1 * ( @sidebar-width-lg + 1 ));
+	    width: @sidebar-width-lg;
+
+	    @media screen and (max-width: @screen-lg) {
+	    	left: (-1 * ( @sidebar-width-md + 1));
+	    	width: @sidebar-width-md;
+	    }
+
+	    @media screen and (max-width: @screen-md) {
+	    	left: 0;
+    		border-bottom: 0;
+    		width: 180px;
+	    }
+
+	    z-index: 30;
+	    border-bottom: @sidebar-border-width @sidebar-border-style @sidebar-border-color;
+
+	    .logo {
+
+	    	position: relative;
+	    	top: 12px;
+    		font-size: ( @font-size-base * (20/14) );
+    		padding-left: @sidebar-padding;
+    		
+    		@media screen and (max-width: @screen-md) {
+    			left: 40px;
+    			padding-left: 0;
+    		}
+
+    		@media screen and (max-width: @screen-sm) {
+    			font-size: ( @font-size-base * (16/14) );
+    			left: 20px;
+    			padding-left: 0;
+    		}
+
+    		a {
+    			&:hover {
+    				color: mix(@link-color-base, #ffffff, 70%);
+    			}
+    		}
+
+	    }
+
+		} // .header-section-sidebar
+
+		&-copy {
+
+			@media screen and (max-width: @screen-md) {
+				right: 55%;
+			}
+
+			@media screen and (max-width: @screen-sm) {
+				right: 20px;
+			}
+
+			.select-field {
+
+				position: relative;
+
+				select {
+					position: relative;
+			    z-index: 50;
+			    box-sizing: border-box;
+			    display: block;
+			    height: 29px;
+			    padding-left: 10px;
+			    padding-right: 38px;
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+			    appearance: none;
+			    background: #fff;
+			    border: 1px solid #d6dee5;
+			    border-radius: 5px;
+			    color: #4c555a;
+			    cursor: pointer;
+			    font-size: ( @font-size-base * (12/14) );
+			    font-weight: 400;
+			    line-height: 28px;
+			    outline: none;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    text-indent: .01px;
+			    text-overflow: '';
+			    vertical-align: middle;  
+			  }
+
+			  &:after {
+		  		content: '\f0d7';
+			    font: normal normal normal 10px/1 FontAwesome;
+			    text-rendering: auto;
+			    -webkit-font-smoothing: antialiased;
+			    position: absolute;
+			    top: 10px;
+			    right: 10px;
+			    z-index: 101;
+			    border-left: 1px solid #d6dee5;
+			    padding-left: 8px;
+			    color: mix(#d6dee5, #000000, 60%);
+			  }
+
+			  &:hover {
+
+			  	select {
+			  		color: #292e31;
+			  	}
+
+			  }
+
+
+
+
+			}
+
+			.jump-menu {
+		
+				display: none;
+				float: right;
+				margin-top: 10px;
+
+				select {
+					max-width: 180px;
+  				width: 100%;
+				}
+
+				@media screen and (max-width: @screen-md) {
+					display: block;
+		    	margin-right: 30px;
+				}
+
+				@media screen and (max-width: @screen-sm) {
+					margin-right: 0;
+
+					select {
+						max-width: 150px;
+					}
+				}
+
+			}
+
+
+		} // .header-section-copy
+
+		&-example {
+
+			left: 45%;
+	    right: 0;
+	    z-index: 10;
+	    height: ( @header-height + 1 );
+	    min-width: 464px;
+	    padding-left: 40px;
+	    background: @header-section-example-bg-color;
+	    color: @method-example-heading-color;
+
+	    @media screen and (max-width: @screen-sm) {
+	    	
+	    	left: 0;
+    		position: relative;
+    		top: @header-height;
+    		z-index: 60;
+    		height: 41px;
+    		min-width: 0;
+    		padding-left: 0;
+
+	    }
+
+		} // .header-section-example
+
+	}
+
+	#language {
+
+		.language-toggle {
+    	overflow: hidden;
+		}
+
+		li {
+
+			float: left;
+    	position: relative;
+    	margin: 8px 2px 0;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			.language-toggle-button {
+
+				position: relative;
+		    z-index: 50;
+		    display: block;
+		    padding: 0 10px;
+		    border: 1px solid transparent;
+		    border-radius: 4px;
+		    color: #d0d4d7;
+		    cursor: pointer;
+		    font-size: 13px;
+		    line-height: 29px;
+
+			}
+
+			.language-toggle-source:checked + .language-toggle-button {
+	    	background: linear-gradient(180deg,#5abaf0,#4aafed);
+  			border-color: transparent;
+  			color: #fff;
+  			text-shadow: 0 0 0 hsla(0, 0%, 100%, 0.5), 0 1px 1px #0e74c3;
+	    }
+
+		}
+
+	}
+
+}

@@ -7,7 +7,15 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>gobeebo/api-docs: A template for creating API documentation, inspired by Stripe</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata|Lato:400,400italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="dist/css/api-docs.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="dist/lib/highlightjs/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,8 +27,9 @@
     <div id="header">
 
       <div class="header-section header-section-sidebar">
-        <a class="logo" href="https://api-docs.github.io">api-docs</a>
-        <a class="logo-github" href="https://github.com/gobeebo/api-docs"><i class="fa fa-github"></i></a>
+        <div class="logo">
+          <a href="https://github.com/gobeebo/api-docs">api-docs</a>
+        </div>
       </div>
 
       <div class="header-section header-section-copy">
@@ -28,13 +37,16 @@
         <div class="select-field jump-menu">
           <!-- this gets built automatically at runtime -->
           <select>
-            
-	<optgroup label="Introduction">
-    
-	<option value="introduction">Introduction</option>
-
-  </optgroup>
-
+            <optgroup label="Introduction">
+  <option value="introduction">Introduction</option>
+<option value="getting-started">Getting Started</option>
+</optgroup>
+<optgroup label="How It Works">
+  
+</optgroup>
+<optgroup label="How to Contribute">
+  
+</optgroup>
           </select>
         </div>
 
@@ -65,16 +77,23 @@
 
     <div id="sidebar">
       <nav role="navigation" class="sidebar-nav">
-        
-  <h5 class="sidebar-nav-heading">Introduction</h5>
-  <ul class="sidebar-nav-items">
-  	
+        <h5 class="sidebar-nav-heading">Introduction</h5>
+<ul class="sidebar-nav-items">
 	<li>
-	    <a class="sidebar-nav-item" href="#introduction">Introduction</a>
-	</li>
-
-  </ul>
-
+  <a class="sidebar-nav-item" href="#introduction">Introduction</a>
+</li>
+<li>
+  <a class="sidebar-nav-item" href="#getting-started">Getting Started</a>
+</li>
+</ul>
+<h5 class="sidebar-nav-heading">How It Works</h5>
+<ul class="sidebar-nav-items">
+	
+</ul>
+<h5 class="sidebar-nav-heading">How to Contribute</h5>
+<ul class="sidebar-nav-items">
+	
+</ul>
       </nav>
     </div><!-- /#sidebar -->
 
@@ -84,84 +103,162 @@
     </div>
 
     <!-- this gets built by grunt:dist -->
-    <!-- all content is in src/content/topics -->
+    <!-- all content is in src/content -->
     <div id="content">
-
-      <section class="method" id="introduction">
+      <div class="method-group"><section class="method" id="introduction">
   <div class="method-area">
     <div class="method-copy">
       <div class="method-copy-padding">
-        <h1>Simple, beautiful API documentation</h1>
+        <h1>Simple, beautiful documentation</h1>
         <p>
-          Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
-        </p>
-        <p class="lang-curl">
-          Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>. Provide your API key as the basic auth username value. You do not need to provide a password.
-        </p>
-        <p class="lang-curl">
-          If you need to authenticate via bearer auth (e.g., for a cross-origin request), use <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> instead of <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code>.
-        </p>
-        <p>
-          All API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+          Authenticate your account when using the API by 
+          including your secret API key in the request. 
+          You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. 
+          Your API keys carry many privileges, so be sure to 
+          keep them secret! Do not share your secret API keys 
+          in <code>publicly accessible</code> areas such GitHub, 
+          client-side code, and so forth.
         </p>
       </div>
     </div>
-    <div class="method-example">
-      <!-- no examples in this section --></div>
   </div>
-</section>
+</section></div><div class="method-group"><section class="method" id="getting-started">
+  <div class="method-area">
+    <div class="method-copy">
+      <div class="method-copy-padding">
+        <h1>Getting Started</h1>
+        <p>
+          Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
+        </p>
+      </div>
+      <div class="method-list">
+        <h5 class="method-list-title">Attributes</h5>
+        <ul class="method-list-group">
+          <li class="method-list-item" id="errors-type">
+            <h3 class="method-list-item-label">
+              <a href="#errors-type" class="header-anchor"></a>
+              type
+            </h3>
+            <p class="method-list-item-description">
+              The type of error returned. Can be: <code>api_connection_error</code>, <code>api_error</code>, <code>authentication_error</code>, <code>card_error</code>, <code>invalid_request_error</code>, or <code>rate_limit_error</code>.
+            </p>
+          </li>
+          <li class="method-list-item" id="errors-message">
+            <h3 class="method-list-item-label"><a href="#errors-message" class="header-anchor"></a>
+              message
+              <span class="method-list-item-label-details">optional</span>
+            </h3>
+            <p class="method-list-item-description">
+              A human-readable message providing more details about the error. For card
+              errors, these messages can be shown to your users.
+            </p>
+          </li>
+          <li class="method-list-item" id="errors-code">
+            <h3 class="method-list-item-label"><a href="#errors-code" class="header-anchor"></a>
+              code
+              <span class="method-list-item-label-details">optional</span>
+            </h3>
+            <p class="method-list-item-description">
+              For card errors, a short string from amongst those listed on the right
+              describing the kind of card error that occurred.
+            </p>
+          </li>
+          <li class="method-list-item" id="errors-param">
+            <h3 class="method-list-item-label"><a href="#errors-param" class="header-anchor"></a>
+              param
+              <span class="method-list-item-label-details">optional</span>
+            </h3>
+            <p class="method-list-item-description">
+              The parameter the error relates to if the error is parameter-specific.
+              You can use this to display a message near the correct form field, for
+              example.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-example" id="api-summary-example">
+      <div class="method-example-part">
+        <h3>API libraries</h3>
+        <p>Libraries for the Stripe API are <a href="https://stripe.com/docs/libraries">available in several languages</a>.</p>
+        <div class="method-example-endpoint">
+          <span class="lang"><pre><code class="nohighlight">https://api.stripe.com</code></pre></span>
+        </div>
+      </div>
+      <div class="method-example-part">
+        <h3>Language specific example</h3>
+        <div class="method-example-request">
+          <span class="lang lang-bash"><pre><code class="language-bash">$ curl https://whatever.com \
+  -u sk_test_whatever</code></pre></span>
+          <span class="lang lang-php"><pre><code class="language-php">JSON: {
+  &quot;docTitle&quot;: &quot;beebo/api-docs&quot;,
+  &quot;homeUrl&quot;: &quot;https://github.com/gobeebo/api-docs&quot;
+}
 
-      <!--
-      <div class="method-group">
-        <section class="method" id="authentication">
-          <div class="method-area">
-            <div class="method-copy">
-              <div class="method-copy-padding">
-                <h1>Authentication</h1>
-                <p>
-                  Authenticate your account when using the API by including your secret API key in the request. You can manage your API keys in the <a href="https://dashboard.stripe.com/account">Dashboard</a>. Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas such GitHub, client-side code, and so forth.
-                </p>
-                <p class="lang-curl">
-                  Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>. Provide your API key as the basic auth username value. You do not need to provide a password.
-                </p>
-                <p class="lang-curl">
-                  If you need to authenticate via bearer auth (e.g., for a cross-origin request), use <code>-H "Authorization: Bearer sk_test_BQokikJOvBiI2HlWgH4olfQ2"</code> instead of <code>-u sk_test_BQokikJOvBiI2HlWgH4olfQ2:</code>.
-                </p>
-                <p>
-                  All API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure">HTTPS</a>. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-                </p>
-              </div>
-            </div>
-            <div class="method-example">
-              <div class="method-example-part">
-                <div class="method-example-request include-prompt">
-                  <span class="lang lang-curl">
-                    <pre class=" hljs language-bash"></pre>
-                  </span>
-                  <span class="lang lang-ruby">
-                    <pre class=" language-ruby"></pre>
-                </div>
-                <p>
-                  <span class="lang lang-curl">
-                    cURL uses the <code>-u</code> flag to pass basic auth credentials (adding a colon after your API key prevents cURL from asking for a password).
-                  </span>
-                  <span class="lang lang-ruby lang-python lang-php lang-java lang-go">
-                    You can set the default API key, or you can always pass a key directly to an object's constructor. Authentication is transparently handled for you in subsequent method calls.
-                  </span>
-                  <span class="lang lang-node">
-                    You can set the default key by passing it to the Stripe module (a constructor). Authentication is transparently handled for you in subsequent method calls.
-                  </span>
-                </p>
-                <p>
-                  A sample test API key is included in all the examples on this page, so you can test any example right away. To test requests using your account, replace the sample API key with your actual API key.
-                </p>
-              </div>
-            </div>
-          </div>
+define('ROOT', realpath(dirname(__FILE__)));
+
+if (!$extConfig = json_decode(file_get_contents(ROOT.'/build.config.json'))) {
+  throw new \Exception(&quot;Unable to parse build config file&quot;);
+}
+
+$baseConfig = [
+  'templatePath' =&gt; ROOT .'/src/templates',
+  'layoutPath' =&gt; '',
+  'outputPath' =&gt; ROOT.'/index.html'
+];</code></pre></span>
+          <span class="lang lang-html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;Honey, boo boo&lt;/body&gt;
+&lt;/html&gt;</code></pre></span>
+        </div>
+      </div>
+      <div class="method-example-part">
+        <h3>HTTP status code summary</h3>
+        <section class="table">
+          <header class="table-header">
+            Types
+          </header>
+          <table class="table-container">
+            <tbody>
+              <tr>
+                <th class="table-row-property">200 - OK</th>
+                <td class="table-row-definition">Everything worked as expected.</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">400 - Bad Request</th>
+                <td class="table-row-definition">The request was unacceptable, often due to  missing a required parameter.</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">401 - Unauthorized</th>
+                <td class="table-row-definition">No valid API key provided.</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">402 - Request Failed</th>
+                <td class="table-row-definition">The parameters were valid but the request failed.</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">404 - Not Found</th>
+                <td class="table-row-definition">The requested resource doesn't exist.</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">409 - Conflict</th>
+                <td class="table-row-definition">The request conflicts with another request (perhaps due to using the same idempotent  key).</td>
+              </tr>
+              <tr>
+                <th class="table-row-property">429 - Too Many Requests</th>
+                <td class="table-row-definition">Too many requests hit the API too quickly.</td>
+              </tr>
+                <tr><th class="table-row-property">500, 502, 503, 504 - Server Errors</th>
+                <td class="table-row-definition">Something went wrong on Stripe's end. (These are rare.)</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </div>
-      -->
 
+    </div>
+  </div>
+</section></div>
     </div>
 
     <script src="dist/js/api-docs.js"></script>
