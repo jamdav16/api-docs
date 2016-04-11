@@ -230,6 +230,9 @@ ul {
 #sidebar .sidebar-nav .sidebar-nav-items li .sidebar-nav-item:hover {
   text-decoration: underline;
 }
+#sidebar .sidebar-nav .sidebar-nav-items li .sidebar-nav-item.selected {
+  color: #0099e5;
+}
 .method-example-part {
   padding: 30px 40px;
 }

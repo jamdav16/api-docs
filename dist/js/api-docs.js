@@ -10576,6 +10576,18 @@ MIT Licensed
 		$('#content').scrollTop( $(document.location.hash).offset().top );
 	}
 
+	function go(id) {
+		try {
+			history.pushState(null, null, '#' + id);
+		} catch (e) {
+			// we don't care: window.console && console.error(e);
+		} finally {
+			$('a.selected').removeClass('selected');
+			$('[href="#' + id + '"]').addClass('selected');
+			$('#header select').val(id);
+		}
+	};
+
 	function createWaypoints() {
 		var context = $('#content').get(0);
 		$('#content section[id]').each(function() {
@@ -10583,14 +10595,10 @@ MIT Licensed
 			new Waypoint({
 				'element': this,
 				'handler': function(direction) {
-					try {
-						history.pushState(null, null, '#' + id);
-					} catch (e) {
-						window.console && console.error(e);
-					}
+					go(id);
 				},
 				'context': context,
-				'offset': '25%'
+				'offset': 10
 			});
 		});
 	};
@@ -10599,15 +10607,15 @@ MIT Licensed
 		Waypoint.destroyAll();
 	};
 
-	$('#sidebar a').click(function() {
-		destroyWaypoints();
-		setTimeout(function() {
-			createWaypoints();
-		}, 300);	
+	$('#header select').change(function() {
+		var id = $(this).val();
+		if (id) {
+			go(id);
+		}
 	});
 
 	setTimeout(function() {
 		createWaypoints();
-	}, 1000);
+	}, 0);
 
 }(jQuery);
