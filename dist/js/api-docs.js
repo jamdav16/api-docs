@@ -10573,7 +10573,10 @@ MIT Licensed
 !function($) {
 
 	if (document.location.hash) {
-		$('#content').scrollTop( $(document.location.hash).offset().top );
+		$('#content').scrollTop( 
+			$('#content').scrollTop()
+			+ $(document.location.hash).offset().top 
+		);
 	}
 
 	function go(id) {
@@ -10612,7 +10615,11 @@ MIT Licensed
 	$('#header select').change(function() {
 		var id = $(this).val();
 		if (id) {
-			$('#content').scrollTop( $('#' + id).offset().top );
+			var to = $('#content').scrollTop()
+				+ $('#' + id).offset().top 
+				- 50;
+				
+			$('#content').scrollTop(to);
 			go(id);
 		}
 	});
