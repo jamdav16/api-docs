@@ -17,8 +17,6 @@ So I made this: *api-docs*.
 
 ## Getting Started
 
-Um... [read the documentation](https://gobeebo.github.io/api-docs).
-
 Fork this repo.
 
 Open `index.html` in your favorite editor.
@@ -37,7 +35,7 @@ MIT, all the way. Enjoy.
 
 ### The MIT License (MIT)
 
-Copyright (c) 2016 Aaron Collegeman
+Copyright (c) 2016 James Davey
 
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the "Software"), 
